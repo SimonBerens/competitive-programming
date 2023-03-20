@@ -31,7 +31,7 @@ template<typename T> T sq(T x) {
 
 #define FOR(i, a, b) for (ll i = (a); i < (b); ++i)
 #define F0R(i, a) FOR(i,0,a)
-#define ROF(i, a, b) for (int i = (b)-1; i >= (a); --i)
+#define ROF(i, a, b) for (ll i = (b)-1; i >= (a); --i)
 #define R0F(i, a) ROF(i,0,a)
 
 using ll = long long;
@@ -40,15 +40,10 @@ using ld = long double;
 template<typename T>
 using vv = vector<vector<T>>;
 
-using vi = vector<int>;
-using ii = array<int, 2>;
+using vi = vector<ll>;
+using ii = array<ll, 2>;
 using vii = vector<ii>;
-using vvi = vv<int>;
-
-using vll = vector<ll>;
-using l2 = array<ll, 2>;
-using vl2 = vector<l2>;
-using vvll = vv<ll>;
+using vvi = vv<ll>;
 
 template<typename T>
 using minq = priority_queue<T, vector<T>, greater<T>>;
@@ -80,7 +75,7 @@ int main() {
         ll n, l, r;
         cin >> n >> l >> r;
         --l; --r;
-        set<l2> p{{0, 0}};
+        set<ii> p{{0, 0}};
         FOR(i,1,n) {
             p.insert({(*--p.end())[0] + 2 * (n - i), i});
         }
@@ -99,11 +94,5 @@ int main() {
             cout << ' ';
         }
         cout << '\n';
-        // n = 4
-        // 1 2 1 3 1 4 2 3 2 4 3 4 1
-        // 0 1 2 3 4 5 6 7 8 9
-        // n = 3
-        // 1 2 1 3 2 3 1
-        // 0 1 2 3 4 5 6
     }
 }
