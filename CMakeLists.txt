@@ -104,4 +104,6 @@ add_executable(cf_1680_C problems/codeforces/1680/C.cpp)
 add_executable(cf_1684_D problems/codeforces/1684/D.cpp)
 add_executable(cf_1998_A problems/codeforces/1998/A.cpp)
 
+add_executable(usaco_2020_dec_1 problems/usaco/2020-dec/gold/1.cpp)
+
 add_executable(ys_queue_composite problems/ys/queue_composite/queue_composite.cpp)
