@@ -6,6 +6,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -D_GLIBCXX_DEBUG")
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+add_executable(cf_5_C problems/codeforces/5/C.cpp)
 add_executable(cf_71_A problems/codeforces/71/A.cpp)
 add_executable(cf_95_B problems/codeforces/95/B.cpp)
 add_executable(cf_223_C problems/codeforces/223/C.cpp)
