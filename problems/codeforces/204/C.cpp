@@ -71,17 +71,15 @@ ll n;
 
 ld solve(const string & a, const string & b) {
     vvi pc(26, vi(n+1));
-    auto ps = pc;
     R0F(i, n) {
         F0R(c, 26) {
-            pc[c][i] = pc[c][i+1] + (a[i] - 'A' == c);
-            ps[c][i] = ps[c][i+1] + i * (a[i] - 'A' == c);
+            pc[c][i] = pc[c][i+1] + (n - i) * (a[i] - 'A' == c);
         }
     }
     ld res = 0;
     F0R(i, n) {
         ll c = b[i] - 'A';
-        res += (i+1) * (n * pc[c][i+1] - ps[c][i+1]);
+        res += (i+1) * pc[c][i+1];
     }
     return res;
 }
