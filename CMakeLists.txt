@@ -3,6 +3,7 @@ project(competitive_programming)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -D_GLIBCXX_DEBUG")
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--stack,256000000")
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -31,6 +32,7 @@ add_executable(cf_455_B problems/codeforces/455/B.cpp)
 add_executable(cf_463_D problems/codeforces/463/D.cpp)
 add_executable(cf_478_C problems/codeforces/478/C.cpp)
 add_executable(cf_478_D problems/codeforces/478/D.cpp)
+add_executable(cf_487_B problems/codeforces/487/B.cpp)
 add_executable(cf_533_C problems/codeforces/533/C.cpp)
 add_executable(cf_547_B problems/codeforces/547/B.cpp)
 add_executable(cf_552_C problems/codeforces/552/C.cpp)
