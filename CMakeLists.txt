@@ -143,6 +143,7 @@ add_executable(cf_1680_C problems/codeforces/1680/C.cpp)
 add_executable(cf_1684_D problems/codeforces/1684/D.cpp)
 add_executable(cf_1690_G problems/codeforces/1690/G.cpp)
 add_executable(cf_1753_C problems/codeforces/1753/C.cpp)
+add_executable(cf_1763_C problems/codeforces/1763/C.cpp)
 add_executable(cf_1764_D problems/codeforces/1764/D.cpp)
 
 add_executable(usaco_2020_dec_gold_1 problems/usaco/2020-dec/gold/1.cpp)
