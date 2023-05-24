@@ -100,15 +100,13 @@ pair<vvi, vi> read_tree(int V, int offset=1, int root_u=1) {
 }
 
 vvi t;
-vi p, dist;
+vi p, f;
 
-void dfs(ll u, ll p, ll d) {
-    dist[u] = d;
+void dfs(ll u, ll d) {
     for (ll v : t[u]) {
-        if (v != p) {
-            dfs(v, u, d+1);
-        }
+        dfs(v, d+1);
     }
+    if (d > 2) f.pb(u);
 }
 
 int main() {
@@ -116,24 +114,14 @@ int main() {
     ll n;
     cin >> n;
     tie(t, p) = read_tree(n);
-    dist = vi(n+1);
-    dfs(1, 0, 0);
-    set<ii, greater<>> s;
-    FOR(i, 1, n+1) {
-        if (dist[i] > 2) {
-            s.insert({dist[i], i});
-        }
-    }
+    dfs(1, 0);
     ll res = 0;
-    while (!s.empty()) {
-        auto [_, u] = *s.begin();
-        u = p[u];
-        s.erase({dist[u], u});
-        s.erase({dist[p[u]], p[u]});
-        for (ll v: t[u]) {
-            s.erase({dist[v], v});
-        }
+    vi seen(n+1);
+    for (ll u : f) {
+        if (seen[u]) continue;
         res++;
+        seen[p[u]] = seen[p[p[u]]] = true;
+        for (ll v : t[p[u]]) seen[v] = true;
     }
     cout << res << '\n';
 }
