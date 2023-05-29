@@ -118,19 +118,17 @@ int main() {
     io();
     ll n, k;
     cin >> n >> k;
-    vi p(n), ip(n+1);
+    vi p(n), ip(n+1), b(n+1);
     F0R(i, n) cin >> p[i];
     F0R(i, n) ip[p[i]] = i;
-    set<ll> b;
     F0R(i, k) {
         ll x;
         cin >> x;
-        b.insert(x);
+        b[x] = 1;
     }
     stack<ii> s;
     s.push({0, n - 1});
     segtree<ll> m(p), d(n);
-    F0R(i, n) m.set(i, p[i]);
     ll w = 0;
     while (!s.empty()) {
         auto [l, r] = s.top();
@@ -139,14 +137,14 @@ int main() {
         ll v = m.min(l, r);
         if (v == infll) continue;
         ll i = ip[v];
-        if (b.count(v) == 0) {
-            w += r-l+1 - d.sum(l, r);
+        if (b[v]) {
+            s.push({l, i - 1});
+            s.push({i + 1, r});
+        } else {
+            w += r - l + 1 - d.sum(l, r);
             d.set(i, 1);
             m.set(i, infll);
             s.push({l, r});
-        } else {
-            s.push({l, i - 1});
-            s.push({i + 1, r});
         }
     }
     cout << w << '\n';
